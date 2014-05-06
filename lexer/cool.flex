@@ -282,7 +282,7 @@ t{r}{u}{e} {
      curr_lineno=lineno; return (ERROR);
   }
   *string_buf_ptr++ = 0;
-  cool_yylval.symbol = inttable.add_string(string_buf);
+  cool_yylval.symbol = stringtable.add_string(string_buf);
    curr_lineno=lineno; return STR_CONST;
 }
 
@@ -371,12 +371,12 @@ t{r}{u}{e} {
 }
 
 [A-Z][a-zA-Z0-9_]* {
-  cool_yylval.symbol = inttable.add_string(yytext);
+  cool_yylval.symbol = idtable.add_string(yytext);
    curr_lineno=lineno; return (TYPEID);
 }
 
 [a-z][a-zA-Z0-9_]* {
-  cool_yylval.symbol = inttable.add_string(yytext);
+  cool_yylval.symbol = idtable.add_string(yytext);
    curr_lineno=lineno; return (OBJECTID);
 }
 
